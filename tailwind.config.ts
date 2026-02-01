@@ -14,7 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Montserrat', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,13 +52,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        neptune: {
-          deep: "hsl(var(--neptune-deep))",
-          core: "hsl(var(--neptune-core))",
-          glow: "hsl(var(--neptune-glow))",
-          ice: "hsl(var(--neptune-ice))",
-          storm: "hsl(var(--neptune-storm))",
+        // Neptune Custom Colors
+        ocean: {
+          deep: "hsl(var(--ocean-deep))",
+          navy: "hsl(var(--ocean-navy))",
+          surface: "hsl(var(--ocean-surface))",
         },
+        aqua: {
+          DEFAULT: "hsl(var(--aqua-primary))",
+          primary: "hsl(var(--aqua-primary))",
+          secondary: "hsl(var(--aqua-secondary))",
+        },
+        coral: "hsl(var(--coral-alert))",
+        amber: "hsl(var(--amber-warning))",
+        turquoise: "hsl(var(--turquoise-low))",
+        safe: "hsl(var(--green-safe))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

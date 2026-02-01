@@ -1,61 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Neptune - Cosmic Design System */
+/* Neptune Oceanographic Platform - Design System */
 
 @layer base {
   :root {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 96%;
+    /* Core Ocean Palette */
+    --background: 222 65% 8%;
+    --foreground: 0 0% 100%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 96%;
+    --card: 220 52% 22%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 220 52% 18%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 222 65% 8%;
 
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 40% 96%;
+    --secondary: 200 100% 39%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 220 40% 25%;
+    --muted-foreground: 0 0% 100% / 0.7;
 
-    --accent: 199 100% 60%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 186 100% 50%;
+    --accent-foreground: 222 65% 8%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 70%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 199 89% 48%;
+    --border: 186 100% 50% / 0.2;
+    --input: 220 40% 25%;
+    --ring: 186 100% 50%;
 
     --radius: 0.75rem;
 
     /* Neptune Custom Tokens */
-    --neptune-deep: 222 60% 4%;
-    --neptune-core: 210 80% 25%;
-    --neptune-glow: 199 100% 50%;
-    --neptune-ice: 190 100% 70%;
-    --neptune-storm: 220 50% 40%;
+    --ocean-deep: 222 65% 8%;
+    --ocean-navy: 222 50% 21%;
+    --ocean-surface: 219 45% 28%;
+    --aqua-primary: 186 100% 50%;
+    --aqua-secondary: 200 100% 39%;
+    --coral-alert: 0 100% 70%;
+    --amber-warning: 37 100% 65%;
+    --turquoise-low: 174 63% 55%;
+    --green-safe: 122 38% 57%;
     
-    --gradient-cosmic: linear-gradient(135deg, hsl(222 60% 4%) 0%, hsl(210 80% 15%) 50%, hsl(222 60% 8%) 100%);
-    --gradient-neptune: linear-gradient(180deg, hsl(199 89% 48% / 0.2) 0%, hsl(222 60% 4% / 0) 100%);
-    --gradient-glow: radial-gradient(circle, hsl(199 100% 50% / 0.15) 0%, transparent 70%);
+    /* Gradients */
+    --gradient-ocean: linear-gradient(180deg, hsl(222 65% 8%) 0%, hsl(222 50% 15%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 52% 22% / 0.8) 0%, hsl(220 52% 18% / 0.6) 100%);
+    --gradient-aqua: linear-gradient(135deg, hsl(186 100% 50%) 0%, hsl(200 100% 39%) 100%);
     
-    --shadow-cosmic: 0 0 60px hsl(199 100% 50% / 0.2);
-    --shadow-glow: 0 0 30px hsl(199 100% 50% / 0.3);
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(186 100% 50% / 0.3);
+    --shadow-card: 0 4px 24px hsl(222 65% 8% / 0.5);
+
+    --sidebar-background: 222 50% 12%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 186 100% 50%;
+    --sidebar-primary-foreground: 222 65% 8%;
+    --sidebar-accent: 220 40% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 186 100% 50% / 0.15;
+    --sidebar-ring: 186 100% 50%;
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 96%;
+    --background: 222 65% 8%;
+    --foreground: 0 0% 100%;
   }
 }
 
@@ -69,62 +85,107 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Outfit', system-ui, sans-serif;
-    background: var(--gradient-cosmic);
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--gradient-ocean);
     min-height: 100vh;
   }
 }
 
 @layer utilities {
-  .text-gradient-neptune {
-    background: linear-gradient(135deg, hsl(199 100% 60%) 0%, hsl(190 100% 70%) 50%, hsl(199 89% 48%) 100%);
+  .font-display {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-mono-data {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .text-gradient-aqua {
+    background: var(--gradient-aqua);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .glow-neptune {
+  .bg-gradient-ocean {
+    background: var(--gradient-ocean);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-lg bg-card/60 border border-border;
+  }
+
+  .glow-aqua {
     box-shadow: var(--shadow-glow);
   }
 
   .glow-text {
-    text-shadow: 0 0 40px hsl(199 100% 50% / 0.5);
-  }
-
-  .bg-cosmic {
-    background: var(--gradient-cosmic);
-  }
-
-  .bg-neptune-gradient {
-    background: var(--gradient-neptune);
+    text-shadow: 0 0 30px hsl(186 100% 50% / 0.5);
   }
 }
 
-/* Star animation keyframes */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
+/* Animations */
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; box-shadow: 0 0 20px hsl(199 100% 50% / 0.2); }
-  50% { opacity: 1; box-shadow: 0 0 40px hsl(199 100% 50% / 0.4); }
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(186 100% 50% / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(186 100% 50% / 0.4);
+  }
 }
 
-.animate-twinkle {
-  animation: twinkle 3s ease-in-out infinite;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: ripple 1.5s ease-out infinite;
+}
+
+/* Ocean Wave Background Pattern */
+.ocean-waves {
+  position: relative;
+  overflow: hidden;
+}
+
+.ocean-waves::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 100%, hsl(200 100% 39% / 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, hsl(186 100% 50% / 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, hsl(186 100% 50% / 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(222 65% 8%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(186 100% 50% / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(186 100% 50% / 0.5);
 }
